@@ -1,0 +1,8 @@
+[package]
+name = "list"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = "4.6.7"
+shellexpand = "3.1.2"
