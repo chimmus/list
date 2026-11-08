@@ -6,9 +6,7 @@
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "containerEnv": {
-    "GH_TOKEN": "${localEnv:GH_TOKEN}"
-  },
+  "runArgs": ["-e", "GH_TOKEN"],
   "postCreateCommand": "scripts/setup",
   "remoteEnv": {
     "REMOTE_CONTAINERS": "true"
