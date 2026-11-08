@@ -6,7 +6,8 @@
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "runArgs": ["-e", "GH_TOKEN"],
+  "initializeCommand": "gh auth token | podman secret create --replace gh_token -",
+  "runArgs": ["--secret=gh_token"],
   "postCreateCommand": "scripts/setup",
   "remoteEnv": {
     "REMOTE_CONTAINERS": "true"
