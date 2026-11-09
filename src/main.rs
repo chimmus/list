@@ -1,7 +1,7 @@
 pub mod bundle;
 
 use clap::Parser;
-use bundle::env::*;
+use bundle::{env::*, show::*};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -12,17 +12,21 @@ struct Cli {
     /// long
     #[arg(short = 'l', long = "long")]
     long: bool,
+    /// path
+    path: Option<String>,
 }
 
 fn main() {
     let args = Cli::parse();
+    if args.long && args.all {
+        todo!("add this");
+    }
     let (path, success) = current();
     if success {
         println!("{path}");
     } else {
         println!("error: {path}");
     }
-    if args.long && args.all {
-        todo!("add this");
-    }
+    ls(&path);
+
 }
