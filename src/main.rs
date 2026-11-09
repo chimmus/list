@@ -18,7 +18,7 @@ struct Cli {
 
 fn main() {
     let args = Cli::parse();
-    if args.long && args.all {
+    if args.long {
         todo!("add this");
     }
     let (path, success) = current();
@@ -27,6 +27,6 @@ fn main() {
     } else {
         println!("error: {path}");
     }
-    ls(&path);
+    ls(&path, args.all);
 
 }
