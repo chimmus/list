@@ -23,7 +23,6 @@ fn main() {
     }
     let (path, success) = current();
     if success {
-        println!("{path}");
     } else {
         println!("error: {path}");
     }
