@@ -21,11 +21,16 @@ fn main() {
     if args.long {
         todo!("add this");
     }
-    let (path, success) = current();
-    if success {
+    if !args.path.is_some() {
+        let (path, success) = current();
+        if success {
+        } else {
+            println!("error: {path}");
+        }
+        ls(&path, args.all);
     } else {
-        println!("error: {path}");
+        let path = &args.path.expect("Something seems to be wrong with the path").to_string();
+        ls(&path, args.all);
     }
-    ls(&path, args.all);
 
 }
